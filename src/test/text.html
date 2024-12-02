@@ -2,15 +2,18 @@
 <head>
 <meta charset="utf-8">
 <title>图形化测试版本</title>
+<!-- 本地文件 -->
 <link rel="shortcut icon" href="ico/favicon1.ico" >
+<!-- <link rel="stylesheet" href="css/style.css"> -->
 
-
-
-
-
+<!-- 远程插件 -->
+<script src="https://unpkg.com/blockly/blockly.min.js"></script>
+<script src="https://unpkg.com/blockly/msg/zh-hans.js"></script>
+<script src="https://unpkg.com/blockly/python_compressed"></script>
 
 </head>
 <body>
+  
     <div class="nav">
         <nav class="menu-left">
 
@@ -23,16 +26,25 @@
        
     </div>
     <div class="work">
+       <div class="blockly">
+        <div id="blocklyDiv" style="height: 720px; width: 1200px;"></div>
        
+            
+       </div>
     </div>
     <div class="codetext">
-
+       <pre id="generatedCode"></pre>
 
     </div>
 <div class="menu">
 
 </div>
 
-
+<div class="script">
+    <script src="js/blockly-c.js"></script>
+    <script src="js/blockly.js"></script>
+    <script src="js/menu.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</div>
 
 </body>
