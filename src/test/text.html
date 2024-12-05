@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
 <title>图形化测试版本</title>
 <!-- 本地文件 -->
@@ -11,35 +12,43 @@
 <script src="https://unpkg.com/blockly/blockly.min.js"></script>
 <script src="https://unpkg.com/blockly/msg/zh-hans.js"></script>
 <script src="https://unpkg.com/blockly/python_compressed"></script>
+<!-- <script src="https://unpkg.com/blockly"></script> -->
+<script src="https://unpkg.com/blockly/javascript_compressed"></script>
+<script src="https://unpkg.com/blockly/python_compressed"></script>
+<script src="https://unpkg.com/blockly/php_compressed"></script>
+<script src="https://unpkg.com/blockly/lua_compressed"></script>
+<script src="https://unpkg.com/blockly/dart_compressed"></script>
 
 </head>
 <div>
   
     <div class="nav">
-        <nav class="menu-left">
+        <!-- <p>生成代码选择</p> -->
             <select id="codename" >
-                <option value="python">python</option>
-                <option value="javascript">javascript</option>
-                <option value="java">java</option>
-                <option value="c">c</option>
-                <option value="c++">c++</option>
+                <option value="Python" selected>python</option>
+                <option value="Javascript">javascript</option>
+                <option value="php">php</option>
+                <option value="lua">lua</option>
+                <option value="dart">dart</option>
             </select>
 
-        </nav>
-          <nav class="menu-right">
-            <button type="button">保存</button>
-          </nav>        
+        
+          
+            <button id="button">保存</button>
+                 
        
     </div>
     <div class="work">
-       <div id="blocklyArea">
-       
-        <div id="blocklyDiv" style="height: 960px; ;width: 1080px;"></div>     
+       <div id="blocklyArea" style="width: fit-content; margin: 1%;">
+        <div id="blocklyDiv" style="width: 800px; height: 800px; left: 0px; top: 0px;"></div>
+        
        </div>
-        <div class="box codetext">
-       <pre id="generatedCode"> &nbsp</pre>
+        <div class="codetext" id="codearea">
+          
+       <pre id="generatedCode" >代码生成</pre>
+          
+        
         </div>
-       
 </div>
 
 <div class="script">
