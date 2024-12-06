@@ -260,6 +260,11 @@ var toolbox = {
   // 动态调整大小
   
   
+  // 在页面加载完成后调整Blockly工作区大小
+
+  
+
+  
   // const onresize = function(e) {
   //   let element = blocklyArea;
   //   let x = 0;
@@ -328,23 +333,30 @@ var toolbox = {
 
 //自定义选择语言生成
 // python
+var text='helloword';
 function CodePython(){
   var code = Blockly.Python.workspaceToCode(workspace);
   console.log(code);
+  // text=Blockly.Python.workspaceToCode(workspace);
   document.getElementById('generatedCode').textContent = code;
+  text=code;
 }
 
 function CodeLua(){
   var code = Blockly.Lua.workspaceToCode(workspace);
   console.log(code);
+  // text=Blockly.Lua.workspaceToCode(workspace);
   document.getElementById('generatedCode').textContent = code;
+  text=code;
 }
 
 
 function CodeJavaScript(){
   var code = Blockly.JavaScript.workspaceToCode(workspace);
   console.log(code);
+  // text=Blockly.JavaScript.workspaceToCode(workspace);
   document.getElementById('generatedCode').textContent = code;
+  text=code;
 }
 
 
@@ -358,14 +370,18 @@ function CodeJavaScript(){
 function CodePhp(){
   var code = Blockly.PHP.workspaceToCode(workspace);
   console.log(code);
+  // text=Blockly.PHP.workspaceToCode(workspace);
   document.getElementById('generatedCode').textContent = code;
+  text=code;
 }
 
 
 function CodeDart(){
   var code = Blockly.Dart.workspaceToCode(workspace);
   console.log(code);
+  // text=Blockly.Dart.workspaceToCode(workspace);
   document.getElementById('generatedCode').textContent = code;
+  text=code;
 }
 
 workspace.addChangeListener(CodePython);
@@ -374,7 +390,7 @@ workspace.addChangeListener(CodePython);
 function loadcode(selectedValue){
   console.log(selectedValue)
   switch(selectedValue){
-        case 'python':
+        case 'Python':
           workspace.addChangeListener(CodePython);
           break;
         
@@ -421,5 +437,32 @@ selectElement.addEventListener('change', function() {
 
         });
 
+        document.getElementById('button').addEventListener('click',async function(){
 
+          if (navigator && navigator.permissions && navigator.permissions.query) {
+              try {
+                  const fileHandle = await window.showSaveFilePicker({
+                      types: [
+                          {
+                              description: '源文件',
+                              accept: {
+                                  'text/plain': ['.txt'],
+                              },
+                          },
+                      ],
+                  });
+      
+                  const writable = await fileHandle.createWritable();
+                  await writable.write(text);
+                  await writable.close();
+      
+                  alert('文件已保存！');
+              } catch (error) {
+                  console.error('保存文件时发生错误:', error);
+                  alert('保存文件时发生错误，请检查控制台日志。');
+              }
+          } else {
+              alert('您的浏览器不支持文件保存功能。');
+          }
+      });
 // workspace.addChangeListener(CodeDart);
