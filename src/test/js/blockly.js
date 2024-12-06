@@ -333,7 +333,7 @@ var toolbox = {
 
 //自定义选择语言生成
 // python
-const text='';
+var text='helloword';
 function CodePython(){
   var code = Blockly.Python.workspaceToCode(workspace);
   console.log(code);
@@ -347,6 +347,7 @@ function CodeLua(){
   console.log(code);
   // text=Blockly.Lua.workspaceToCode(workspace);
   document.getElementById('generatedCode').textContent = code;
+  text=code;
 }
 
 
@@ -355,6 +356,7 @@ function CodeJavaScript(){
   console.log(code);
   // text=Blockly.JavaScript.workspaceToCode(workspace);
   document.getElementById('generatedCode').textContent = code;
+  text=code;
 }
 
 
@@ -370,6 +372,7 @@ function CodePhp(){
   console.log(code);
   // text=Blockly.PHP.workspaceToCode(workspace);
   document.getElementById('generatedCode').textContent = code;
+  text=code;
 }
 
 
@@ -378,6 +381,7 @@ function CodeDart(){
   console.log(code);
   // text=Blockly.Dart.workspaceToCode(workspace);
   document.getElementById('generatedCode').textContent = code;
+  text=code;
 }
 
 workspace.addChangeListener(CodePython);
