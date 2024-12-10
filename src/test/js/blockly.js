@@ -6,69 +6,131 @@ var toolbox = {
   "contents": [
     {
       "kind": "category",
-      "name": "基础",
+      "name": "变量",
       "colour":200,
       "contents": [
-        {
-          "kind": "block",
-          "type": "text"
+        
+
+
+
+
+
+
+        {"kind": "block",
+          "type": "variables_get",
+          "message0":"%1",
+          "args0":[
+            {
+              "type":"field_variable",
+              "name":"VAR",
+              
+              
+              "variable":"%{BKY_VARIABLES_DEFAULT_NAME}"
+            }
+          ],
+          "output":null
+          
         },
-      ]
+        
+       
+        {"kind": "block",
+          "type": "variables_set",
+          "message0":"%{BKY_VARIABLES_SET}",
+          "args0":[{
+            "type": "field_variable",
+      "name": "VAR",
+      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
     },
     {
+      "type": "input_value",
+      "name": "VALUE"
+    }]},
+
+  
+    
+    
+            
+          ],
+          
+        },
+       
+        
+
+
+
+     
+    {
       "kind": "category",
-      "name": "计算",
+      "name": "输入",
       "colour":210,
       "contents": [
+        {"kind": "block",
+          "type": "math_number",
+          "message0":"%1",
+          "args0":[{
+            "type":"input_value",
+            "name":"NUM",
+            "check":"Number",
+          }],
+          "output":"Number",
+          
+        },
+       
         {
           "kind": "block",
-          "type": "math_arithmetic"
+          "type": "text",
+          "message0":"%1",
+          "args0":[{
+            "type":"field_input",
+            "name":"TEXT",
+            "text":""
+
+
+          }],
+          "output":"Strong"
         },
+
         {
           "kind": "block",
-          "type": "math_single"
+          "type": "logic_boolean",
+          "message0": "%1",
+          "args0": [
+            {
+              "type": "field_dropdown",
+              "name": "BOOL",
+              "options": [
+                [
+                  "TRUE",
+                  "TRUE"
+                ],
+                [
+                  "FALSE",
+                  "FALSE"
+                ]
+              ]
+            }
+          ],
+          "output": "Boolean"
         },
-        {
-          "kind": "block",
-          "type": "math_trig"
-        },
-        // {
-        //   "kind": "block",
-        //   "type": "math_constante"
-        // },
-        {
-          "kind": "block",
-          "type": "math_change"
-        },
-        {
-          "kind": "block",
-          "type": "math_round"
-        },
-        {
-          "kind": "block",
-          "type": "math_on_list"
-        },
-        {
-          "kind": "block",
-          "type": "math_modulo"
-        },{
-          "kind": "block",
-          "type": "math_constrain"
-        },{
-          "kind": "block",
-          "type": "math_random_float"
-        },
+        
       ]
     },
     {
       "kind": "category",
-      "name": "判断",
+      "name": "输出",
       "colour":220,
       "contents": [
-        {
-          "kind": "block",
-          "type": "controls_if"
-        },
+        
+       
+      
+     
+      
+      
+      
+    
+      
+      
+      
         {
           "kind": "block",
           "type": "controls_for"
@@ -81,7 +143,7 @@ var toolbox = {
     },
     {
       "kind": "category",
-      "name": "循环",
+      "name": "计算",
       "colour":230,
       "contents": [
         {
@@ -100,77 +162,89 @@ var toolbox = {
     },
     {
       "kind": "category",
-      "name": "数组",
+      "name": "判断",
       "colour":240,
       "contents": [
         {
           "kind": "block",
-          "type": "variables_set"
+          "type": "controls_if"
         },
         {
           "kind": "block",
-          "type": "variables_get"
+          "type": "logic_compare"
         },
-        // {
-        //   "kind": "block",
-        //   "type": "logic_boolean"
-        // }
+        {
+          "kind": "block",
+          "type": "logic_operation"
+        }
       ]
     },
     {
       "kind": "category",
-      "name": "变量",
+      "name": "循环",
       "colour":250,
       "contents": [
         {
           "kind": "block",
-          "type": "logic_compare"
+          "type": "controls_repeat"
         },
         {
           "kind": "block",
-          "type": "logic_operation"
+          "type": "controls_repeat_ext"
         },
         {
           "kind": "block",
-          "type": "logic_boolean"
+          "type": "controls_whileUntil"
         }
       ]
     },
     {
       "kind": "category",
-      "name": "输入",
+      "name": "数组",
       "colour":260,
       "contents": [
         {
           "kind": "block",
-          "type": "math_number"
+          "type": "lists_create_empty"
         },
         {
           "kind": "block",
-          "type": "logic_operation"
+          "type": "lists_create_with"
         },
         {
           "kind": "block",
-          "type": "logic_boolean"
+          "type": "lists_getIndex"
         }
       ]
     },
     {
       "kind": "category",
-      "name": "输出",
+      "name": "其他",
       "colour":270,
       "contents": [
         {
           "kind": "block",
-          "type": "logic_compare"
+          "type": "text"
         },
         {
           "kind": "block",
-          "type": "logic_operation"
+          "type": "text_join"
         },
         {
           "kind": "block",
-          "type": "logic_boolean"
+          "type": "text_length"
+        },
+        // {
+        //   "kind": "block",
+        //   "type": "text_split"
+        // },
+        // {
+        //   "kind": "block",
+        //   "type": "text_substring"
+        // },
+        {
+          "kind": "block",
+          "type": "console_print"
         }
       ]
     },    
@@ -466,3 +540,7 @@ selectElement.addEventListener('change', function() {
           }
       });
 // workspace.addChangeListener(CodeDart);
+
+
+
+
