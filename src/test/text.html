@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+<meta charset="utf-8">
+<title>图形化测试版本</title>
+<!-- 本地文件 -->
+<link rel="shortcut icon" href="ico/favicon1.ico" >
+<!-- <link rel="stylesheet" href="css/style.css"> -->
+<link rel="stylesheet" href="css/style.css">
+
+<!-- 远程插件 -->
+<script src="https://unpkg.com/blockly/blockly.min.js"></script>
+<script src="https://unpkg.com/blockly/msg/zh-hans.js"></script>
+<script src="https://unpkg.com/blockly/python_compressed"></script>
+<!-- <script src="https://unpkg.com/blockly"></script> -->
+<script src="https://unpkg.com/blockly/javascript_compressed"></script>
+<script src="https://unpkg.com/blockly/python_compressed"></script>
+<script src="https://unpkg.com/blockly/php_compressed"></script>
+<script src="https://unpkg.com/blockly/lua_compressed"></script>
+<script src="https://unpkg.com/blockly/dart_compressed"></script>
+
+</head>
+<div class="title"> 
+    <h1>blockly</h1>
+    <p>让编程变得简单</p>
+</div>
+<div class="container">
+  
+    <div class="controls">
+        <p>生成语言</p>
+            <select id="codename" >
+                <option value="Python">python</option>
+                <option value="Javascript">javascript</option>
+                <option value="php">php</option>
+                <option value="lua">lua</option>
+                <option value="dart">dart</option>
+            </select>
+
+        
+          
+            <button id="button">保存代码</button>
+                 
+       
+    </div>
+    <div class="work">
+    
+        <div id="blocklyArea">
+            
+        <div id="blocklyDiv" ></div>
+       </div>
+        <div class="codetext" id="codearea">
+          <h2>生成的代码</h2>
+       <pre id="generatedCode" >代码生成</pre>
+          
+        
+        </div>
+</div>
+</div>
+
+<div class="script">
+    <script src="js/blockly-c.js"></script>
+    <script src="js/blockly.js"></script>
+    <script src="js/menu.js"></script>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+</div>
+
+</body>
+</html>

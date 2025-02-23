@@ -1,0 +1,250 @@
+
+/* 
+ 
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+
+   
+}
+.title{
+
+text-align: center;
+padding: 1.5rem;
+background: #2c3e50;
+color: white;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.title h1{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.work{
+    display: flex;
+
+    height: 100vh;
+}
+#blocklyArea {
+    flex: 1;
+    margin: 1%;
+   
+}
+#blocklyDiv {
+
+  
+    width: 100%;
+    height: 100%;
+   
+    border: 1px solid #ccc;
+}
+#blocklyworkspace{
+    width: 100%;
+    height: 100%;
+   
+    border: 1px solid #ccc;
+
+}
+.codetext {
+    flex: 1;
+    margin: 1%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow: auto;
+}
+#generatedCode {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.controls {
+    display: flex;
+    justify-content: left;
+    margin: 10px;
+}
+.controls button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    font-size: 16px;
+}  
+
+ */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    height: 100%;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f8f9fa;
+}
+
+/* 标题区域 */
+.title {
+    text-align: center;
+    padding: 1.5rem;
+    background: #2c3e50;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.title h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 主容器 */
+.app-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    min-height: 0;
+}
+
+/* 控制栏 */
+.control-bar {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.controls label {
+    font-weight: 500;
+    color: #34495e;
+}
+
+#codename {
+    padding: 0.5rem 1rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    background: white;
+}
+
+/* 在style.css中添加运行按钮样式 */
+#runButton {
+    padding: 0.5rem 1.5rem;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#runButton:hover {
+    background: #219a52;
+}
+
+.execution-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/*  */
+#button {
+    padding: 0.5rem 1.5rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#button:hover {
+    background: #2980b9;
+}
+
+/* 工作区 */
+.workspace {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+    min-height: 0;
+}
+
+/* Blockly容器 */
+.blockly-container {
+    flex: 1;
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    min-width: 400px;
+}
+
+#blocklyDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* 代码预览区 */
+.code-preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    min-width: 320px;
+}
+
+.code-preview h2 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+#generatedCode {
+    flex: 1;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow: auto;
+    font-family: 'Fira Code', monospace;
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .workspace {
+        flex-direction: column;
+    }
+    
+    .blockly-container, 
+    .code-preview {
+        min-height: 50vh;
+    }
+    
+    .controls {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
