@@ -7,52 +7,65 @@ var toolbox = {
     {
       "kind": "category",
       "name": "变量",
-      "colour":200,
+      "colour": "#A569BD",  // 使用HEX颜色代码
+      "custom": "VARIABLE",
       "contents": [
-        
-
-
-
-
-
-
-        {"kind": "block",
-          "type": "variables_get",
-          "message0":"%1",
-          "args0":[
-            {
-              "type":"field_variable",
-              "name":"VAR",
-              
-              
-              "variable":"%{BKY_VARIABLES_DEFAULT_NAME}"
-            }
-          ],
-          "output":null
-          
-        },
-        
-       
-        {"kind": "block",
+        {
+          "kind": "block",
           "type": "variables_set",
-          "message0":"%{BKY_VARIABLES_SET}",
-          "args0":[{
-            "type": "field_variable",
-      "name": "VAR",
-      "variable": "%{BKY_VARIABLES_DEFAULT_NAME}"
+          "message0": "设置 %1 为 %2",
+          "args0": [
+            {"type": "field_variable", "name": "VAR", "variable": "item"},
+            {"type": "input_value", "name": "VALUE"}
+          ],
+          "previousStatement": null,
+          "nextStatement": null,
+          "colour": "#A569BD",
+          "tooltip": "创建或修改变量值",
+          "helpUrl": "https://developers.google.com/blockly/guides/create-custom-blocks/define-blocks"
+        },
+        {
+          "kind": "block",
+          "type": "variables_get",
+          "message0": "%1",
+          "args0": [{"type": "field_variable", "name": "VAR", "variable": "item"}],
+          "output": null,
+          "colour": "#A569BD",
+          "tooltip": "获取变量值"
+        }
+      ]
     },
     {
-      "type": "input_value",
-      "name": "VALUE"
-    }]},
-
-  
-    
-    
-            
+      "kind": "category",
+      "name": "函数",
+      "colour": "#3498DB",
+      "custom": "PROCEDURE",
+      "contents": [
+        {
+          "kind": "block",
+          "type": "procedures_defnoreturn",
+          "message0": "函数 %1 参数 %2 执行 %3",
+          "args0": [
+            {"type": "field_input", "name": "NAME", "text": "函数名称"},
+            {"type": "input_dummy"},
+            {"type": "input_statement", "name": "STACK"}
           ],
-          
+          "previousStatement": null,
+          "nextStatement": null,
+          "colour": "#3498DB",
+          "tooltip": "定义没有返回值的函数"
         },
+        {
+          "kind": "block",
+          "type": "procedures_callnoreturn",
+          "message0": "调用 %1",
+          "args0": [{"type": "field_input", "name": "NAME", "text": "函数名称"}],
+          "previousStatement": null,
+          "nextStatement": null,
+          "colour": "#3498DB"
+        }
+      ]
+    },
        
         
 
@@ -61,7 +74,7 @@ var toolbox = {
      
     {
       "kind": "category",
-      "name": "输入",
+      "name": "文本",
       "colour":210,
       "contents": [
         {"kind": "block",
@@ -74,6 +87,15 @@ var toolbox = {
           }],
           "output":"Number",
           
+        },{
+          "kind": "block",
+          "type": "text_print",
+          "message0": "打印 %1",
+          "args0": [{"type": "input_value", "name": "TEXT", "check": "String"}],
+          "previousStatement": null,
+          "nextStatement": null,
+          "colour": "#2ECC71",
+          "tooltip": "输出文本到控制台"
         },
        
         {
@@ -111,15 +133,99 @@ var toolbox = {
             }
           ],
           "output": "Boolean"
+        }, {
+          "kind": "block",
+          "type": "text_join"
+        }, {
+          "kind": "block",
+          "type": "text_append"
+        }, {
+          "kind": "block",
+          "type": "text_length"
+        }, {
+          "kind": "block",
+          "type": "text_isEmpty"
+        }, {
+          "kind": "block",
+          "type": "text_indexOf"
+        }, {
+          "kind": "block",
+          "type": "text_charAt"
+        }, {
+          "kind": "block",
+          "type": "text_getSubstring"
+        }, {
+          "kind": "block",
+          "type": "text_changeCase"
+        }, {
+          "kind": "block",
+          "type": "text_trim"
+        }, {
+          "kind": "block",
+          "type": "text_prompt_ext"
         },
         
       ]
     },
+
+    {
+      "kind": "category",
+      "name": "列表",
+      "colour":270,
+      "contents": [
+        {
+          "kind": "block",
+          "type": "lists_create_with"
+        }, 
+        {
+          "kind": "block",
+          "type": "lists_repeat"
+        },
+        {
+          "kind": "block",
+          "type": "lists_length"
+        }, {
+          "kind": "block",
+          "type": "lists_isEmpty"
+        }, {
+          "kind": "block",
+          "type": "lists_indexOf"
+        }, {
+          "kind": "block",
+          "type": "lists_getIndex"
+        }, {
+          "kind": "block",
+          "type": "lists_setIndex"
+        }, {
+          "kind": "block",
+          "type": "lists_getSublist"
+        }, {
+          "kind": "block",
+          "type": "lists_split"
+        }, {
+          "kind": "block",
+          "type": "lists_sort"
+        },
+        // {
+        //   "kind": "block",
+        //   "type": "text_split"
+        // },
+        // {
+        //   "kind": "block",
+        //   "type": "text_substring"
+        // },
+        
+      ]
+    },    
     {
       "kind": "category",
       "name": "输出",
       "colour":220,
       "contents": [
+        {
+          "kind": "block",
+          "type": "text_print"
+        },
         
        
       
@@ -148,12 +254,46 @@ var toolbox = {
       "contents": [
         {
           "kind": "block",
-          "type": "controls_whileUntil"
-        },
-        {
+          "type": "math_number"
+        },{
           "kind": "block",
-          "type": "controls_repeat_ext"
+          "type": "math_arithmetic"
+        },{
+          "kind": "block",
+          "type": "math_single"
+        },{
+          "kind": "block",
+          "type": "math_trig"
+        },{
+          "kind": "block",
+          "type": "math_number_property"
+        },{
+          "kind": "block",
+          "type": "math_constant"
+        },{
+          "kind": "block",
+          "type": "math_change"
+        },{
+          "kind": "block",
+          "type": "math_round"
+        },{
+          "kind": "block",
+          "type": "math_on_list"
+        },{
+          "kind": "block",
+          "type": "math_modulo"
+        },{
+          "kind": "block",
+          "type": "math_constrain"
+        },{
+          "kind": "block",
+          "type": "math_random_int"
+        },{
+          "kind": "block",
+          "type": "math_random_float"
         },
+       
+        
         // {
         //   "kind": "block",
         //   "type": "logic_boolean"
@@ -171,11 +311,31 @@ var toolbox = {
         },
         {
           "kind": "block",
+          "type": "controls_ifelse"
+        },
+        {
+          "kind": "block",
           "type": "logic_compare"
         },
         {
           "kind": "block",
           "type": "logic_operation"
+        },
+        {
+          "kind": "block",
+          "type": "logic_negate"
+        },
+        {
+          "kind": "block",
+          "type": "logic_boolean"
+        },
+        {
+          "kind": "block",
+          "type": "logic_null"
+        },
+        {
+          "kind": "block",
+          "type": "logic_ternary"
         }
       ]
     },
@@ -186,54 +346,44 @@ var toolbox = {
       "contents": [
         {
           "kind": "block",
+          "type": "controls_for"
+        },
+        {
+          "kind": "block",
           "type": "controls_repeat"
         },
         {
           "kind": "block",
-          "type": "controls_repeat_ext"
+          "type": "controls_repeat_ext",
+         
+
+
+
+          
         },
         {
           "kind": "block",
           "type": "controls_whileUntil"
-        }
-      ]
-    },
-    {
-      "kind": "category",
-      "name": "数组",
-      "colour":260,
-      "contents": [
-        {
-          "kind": "block",
-          "type": "lists_create_empty"
         },
         {
           "kind": "block",
-          "type": "lists_create_with"
-        },
-        {
-          "kind": "block",
-          "type": "lists_getIndex"
+          "type": "controls_forEach",
+          
         }
       ]
     },
+    
     {
       "kind": "category",
       "name": "其他",
       "colour":270,
       "contents": [
-        {
-          "kind": "block",
-          "type": "text"
-        },
-        {
-          "kind": "block",
-          "type": "text_join"
-        },
-        {
-          "kind": "block",
-          "type": "text_length"
-        },
+        // {
+        //   "kind": "block",
+        //   "type": "custom_hello"
+        // },
+        
+        
         // {
         //   "kind": "block",
         //   "type": "text_split"
@@ -244,7 +394,7 @@ var toolbox = {
         // },
         {
           "kind": "block",
-          "type": "console_print"
+          "type": "text_print"
         }
       ]
     },    
@@ -539,7 +689,36 @@ selectElement.addEventListener('change', function() {
               alert('您的浏览器不支持文件保存功能。');
           }
       });
-// workspace.addChangeListener(CodeDart);
+workspace.addChangeListener(CodeDart);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

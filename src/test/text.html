@@ -7,6 +7,7 @@
 <!-- 本地文件 -->
 <link rel="shortcut icon" href="ico/favicon1.ico" >
 <!-- <link rel="stylesheet" href="css/style.css"> -->
+<link rel="stylesheet" href="css/style.css">
 
 <!-- 远程插件 -->
 <script src="https://unpkg.com/blockly/blockly.min.js"></script>
@@ -20,10 +21,14 @@
 <script src="https://unpkg.com/blockly/dart_compressed"></script>
 
 </head>
-<div class=".container">
+<div class="title"> 
+    <h1>blockly</h1>
+    <p>让编程变得简单</p>
+</div>
+<div class="container">
   
     <div class="controls">
-        <!-- <p>生成代码选择</p> -->
+        <p>生成语言</p>
             <select id="codename" >
                 <option value="Python">python</option>
                 <option value="Javascript">javascript</option>
@@ -34,7 +39,7 @@
 
         
           
-            <button id="button">保存</button>
+            <button id="button">保存代码</button>
                  
        
     </div>
@@ -42,7 +47,7 @@
     
         <div id="blocklyArea">
             
-        <div id="blocklyDiv"></div>
+        <div id="blocklyDiv" ></div>
        </div>
         <div class="codetext" id="codearea">
           <h2>生成的代码</h2>
@@ -58,7 +63,7 @@
     <script src="js/blockly-c.js"></script>
     <script src="js/blockly.js"></script>
     <script src="js/menu.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
 </div>
 
 </body>
